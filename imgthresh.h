@@ -11,7 +11,7 @@
 #include <vtkRenderer.h>
 #include <vtkSmartPointer.h>
 #include <vtkImageThreshold.h>
-
+#include <vtkPNGReader.h>
 #include "mythresholdfilter.h"
 
 
@@ -28,7 +28,7 @@ class ImgThresh
     private:
         QString filename;
         unsigned short threshold;
-        vtkSmartPointer<vtkImageReader> head_reader;
+        vtkSmartPointer<vtkPNGReader> head_reader;
         vtkSmartPointer<vtkImageViewer2> imageViewer_thresh;
         vtkSmartPointer<vtkRenderWindowInteractor> renwinin_thresh;
         vtkSmartPointer<vtkRenderer> renderer_thresh;

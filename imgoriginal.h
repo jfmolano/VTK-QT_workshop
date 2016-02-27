@@ -12,6 +12,7 @@
 #include <vtkRenderer.h>
 #include <vtkSmartPointer.h>
 #include <vtkImageThreshold.h>
+#include <vtkImageCanvasSource2D.h>
 
 
 class ImgOriginal

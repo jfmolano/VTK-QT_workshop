@@ -39,7 +39,7 @@ void MainWindow::on_pushButton_file_clicked()
     //QString name="/headsq";
     QString dir = QFileDialog::getOpenFileName(this, tr("Open Directory"),
                  "/home");
-    //dir.append(name);;;;;;
+    //dir.append(name);
     ui->lineEdit_file->setText(dir);
     //this->string_filename="/home/estudiante/Downloads/GokuAfterFightingVegetaBuuSaga2.png";
     this->string_filename=dir;
@@ -47,18 +47,15 @@ void MainWindow::on_pushButton_file_clicked()
 
 void MainWindow::on_pushButton_update_clicked()
 {
-    /*
     myImgThresh->setThreshold(this->ui->lineEdit_thresh->text().toShort());
     myImgThresh->setFilename(this->string_filename);
-    */
     myImgOriginal->setFilename(this->string_filename);
     myImgOriginal->Update();
     cout << (this->string_filename.toStdString().c_str());
     /*
-    myImgThresh->Update();
-
     myImgIsoVol->SetFilter(myImgThresh->GetResultFilter());
     myImgIsoVol->Update();*/
+    myImgThresh->Update();
 
 }
 

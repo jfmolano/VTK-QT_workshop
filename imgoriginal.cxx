@@ -17,7 +17,6 @@ ImgOriginal::ImgOriginal(){
 
 void ImgOriginal::Update(){
 
-
     head_reader->SetFileName(this->filename.toStdString().c_str());
     head_reader->Update();
     renderer_original->ResetCamera();

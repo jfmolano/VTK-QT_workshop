@@ -9,15 +9,17 @@
 vtkStandardNewMacro(MyThresholdFilter);
 
 void MyThresholdFilter::setThreshold(unsigned short val){
+    cout << ("MyThresholdFilter::setThreshold");
     this->threshold=val;
 }
 
 unsigned short MyThresholdFilter::getThreshold(){
+    cout << ("MyThresholdFilter::getThreshold()");
     return threshold;
 }
 
 void MyThresholdFilter::SimpleExecute(vtkImageData *input, vtkImageData *output){
-
+    cout << ("Entra al MyThresholdFilter::SimpleExecute");
     //Codigo de mi filtro aqui
     unsigned short *pixelin=NULL;
     unsigned short *pixelout=NULL;
@@ -30,7 +32,8 @@ void MyThresholdFilter::SimpleExecute(vtkImageData *input, vtkImageData *output)
                 pixelin = static_cast<unsigned short*>(input->GetScalarPointer(i,j,k));
                 pixelout = static_cast<unsigned short*>(output->GetScalarPointer(i,j,k));
 
-                if(pixelin[0]>=threshold)
+                //if(pixelin[0]>=threshold)
+                if(pixelin[0]>=50)
                     pixelout[0]=255;
                 else
                     pixelout[0]=0;

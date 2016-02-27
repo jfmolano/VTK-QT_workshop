@@ -13,12 +13,8 @@
 
 ImgThresh::ImgThresh(){
 
-    head_reader = vtkSmartPointer<vtkImageReader>::New();
-    head_reader->ReleaseDataFlagOff();
-    head_reader->SetDataByteOrderToLittleEndian();
-    head_reader->SetDataExtent(0, 255, 0, 255, 1, 93);
-    head_reader->SetDataMask(0x7fff);
-    head_reader->SetDataScalarTypeToUnsignedShort();
+    head_reader = vtkSmartPointer<vtkPNGReader>::New();
+    head_reader->SetFileName("/home/estudiante/Downloads/GokuAfterFightingVegetaBuuSaga2.png");
 
     myFilter= MyThresholdFilter::New();
     myFilter->SetInputConnection(head_reader->GetOutputPort());
@@ -36,8 +32,8 @@ ImgThresh::ImgThresh(){
 }
 
 void ImgThresh::Update(){
-
-    head_reader->SetFilePrefix(this->filename.toStdString().c_str());
+    cout << ("ImgThresh::Update()");
+    head_reader->SetFileName(this->filename.toStdString().c_str());
     head_reader->Update();
     myFilter->setThreshold(this->threshold);
     myFilter->Update();
