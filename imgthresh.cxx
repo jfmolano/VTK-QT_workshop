@@ -12,16 +12,21 @@
 #include <vtkSmartPointer.h>
 
 ImgThresh::ImgThresh(){
-
-    head_reader = vtkSmartPointer<vtkPNGReader>::New();
-    head_reader->SetFileName("/home/estudiante/Downloads/GokuAfterFightingVegetaBuuSaga2.png");
-
+    cout << "ImgThresh::ImgThresh() - Constructor \n";
+    head_reader = vtkSmartPointer<vtkBMPReader>::New();
+    //head_reader->SetFileName("/home/estudiante/Downloads/alien.bmp");
+    //head_reader->SetDataByteOrderToLittleEndian();
+    //head_reader->SetDataExtent(0, 255, 0, 255, 1, 93);
+    //head_reader->SetDataScalarTypeToUnsignedShort();
+    cout << "ImgThresh::ImgThresh() - Nuevo filtro \n";
     myFilter= MyThresholdFilter::New();
     myFilter->SetInputConnection(head_reader->GetOutputPort());
 
+    cout << "ImgThresh::ImgThresh() - Nuevo imageViewer_thresh \n";
     imageViewer_thresh = vtkSmartPointer<vtkImageViewer2>::New();
     imageViewer_thresh->SetInputConnection(myFilter->GetOutputPort());
 
+    cout << "ImgThresh::ImgThresh() - Nuevo renwinin_thresh \n";
     renwinin_thresh = vtkSmartPointer<vtkRenderWindowInteractor>::New();
     renwinin_thresh->Initialize();
     renwinin_thresh->Start();
@@ -32,7 +37,7 @@ ImgThresh::ImgThresh(){
 }
 
 void ImgThresh::Update(){
-    cout << ("ImgThresh::Update()");
+    cout << ("ImgThresh::Update() \n");
     head_reader->SetFileName(this->filename.toStdString().c_str());
     head_reader->Update();
     myFilter->setThreshold(this->threshold);

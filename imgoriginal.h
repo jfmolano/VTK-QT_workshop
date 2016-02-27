@@ -5,6 +5,7 @@
 #include <vtkImageData.h>
 #include <vtkImageReader.h>
 #include <vtkPNGReader.h>
+#include <vtkBMPReader.h>
 #include <vtkImageViewer2.h>
 #include <vtkRenderWindowInteractor.h>
 #include <vtkSmartPointer.h>
@@ -25,7 +26,7 @@ class ImgOriginal
 
     private:
         QString filename;
-        vtkSmartPointer<vtkPNGReader> head_reader;
+        vtkSmartPointer<vtkBMPReader> head_reader;
         vtkSmartPointer<vtkImageViewer2> imageViewer_original;
         vtkSmartPointer<vtkRenderWindow> renwin_original;
         vtkSmartPointer<vtkRenderWindowInteractor> renwinin_original;

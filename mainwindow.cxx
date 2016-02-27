@@ -25,8 +25,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->ui->qvtkwidget_threshold->GetRenderWindow()->AddRenderer(
                 myImgThresh->GetRenderer());
 
-    this->ui->qvtkwidget_mcubes->GetRenderWindow()->AddRenderer(
-                myImgIsoVol->GetRenderer());
+    //this->ui->qvtkwidget_mcubes->GetRenderWindow()->AddRenderer(
+                //myImgIsoVol->GetRenderer());
 }
 
 MainWindow::~MainWindow()
@@ -51,7 +51,7 @@ void MainWindow::on_pushButton_update_clicked()
     myImgThresh->setFilename(this->string_filename);
     myImgOriginal->setFilename(this->string_filename);
     myImgOriginal->Update();
-    cout << (this->string_filename.toStdString().c_str());
+    //cout << (this->string_filename.toStdString().c_str()+'\n');
     /*
     myImgIsoVol->SetFilter(myImgThresh->GetResultFilter());
     myImgIsoVol->Update();*/

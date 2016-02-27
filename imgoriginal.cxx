@@ -2,8 +2,8 @@
 
 ImgOriginal::ImgOriginal(){
 
-    head_reader = vtkSmartPointer<vtkPNGReader>::New();
-    head_reader->SetFileName("/home/estudiante/Downloads/GokuAfterFightingVegetaBuuSaga.png");
+    head_reader = vtkSmartPointer<vtkBMPReader>::New();
+    head_reader->SetFileName("/home/estudiante/Downloads/img.bmp");
 
     imageViewer_original = vtkSmartPointer<vtkImageViewer2>::New();
     imageViewer_original->SetInputConnection(head_reader->GetOutputPort());
