@@ -39,7 +39,7 @@ void MainWindow::on_pushButton_file_clicked()
     //QString name="/headsq";
     QString dir = QFileDialog::getOpenFileName(this, tr("Open Directory"),
                  "/home");
-    //dir.append(name);
+    //dir.append(name);;;;;;
     ui->lineEdit_file->setText(dir);
     //this->string_filename="/home/estudiante/Downloads/GokuAfterFightingVegetaBuuSaga2.png";
     this->string_filename=dir;
